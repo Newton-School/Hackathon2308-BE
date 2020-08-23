@@ -11,7 +11,7 @@ app.use(express.urlencoded());
 app.use(express.json());
 var connection = mysql.createConnection({
 
-    host     : process.env.DB_END_POINT,
+    host     : process.env.DB_END_POINT, // while developing mention local db and after testing push with this only
     user     :process.env.DB_USER_NAME,
     database : process.env.DB_DATABASE_NAME,
     port: process.env.DB_PORT_NUM
