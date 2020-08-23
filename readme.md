@@ -1,4 +1,13 @@
- ### All of your backend code goes here
+# Github Issues Clone
 
- ### please ensure that you have followed the proper db schema
- 
+# Hosted Url: https://kanishk-github-issues-clone.herokuapp.com
+
+## Newton School Hackathon
+
+# Features
+
+- Adding New Issue
+- Editing Issue
+- Each Issue has status
+- Filter displayed issues by Open, Closed and All
+- Delete Issue
