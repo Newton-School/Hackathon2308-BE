@@ -1,30 +1,17 @@
-const express = require('express')
-const app = express()
-const bodyParser = require("body-parser");
-const port = 3000
-const serialiser = require('node-serialize')
-const mysql = require('mysql');
+const express = require("express");
+const app = express();
+const connectDB = require("./config/db");
 
-app.use(express.urlencoded());
+connectDB();
 
-// Parse JSON bodies (as sent by API clients)
-app.use(express.json());
-var connection = mysql.createConnection({
+app.use(express.json({ extended: true }));
 
-    host     : process.env.DB_END_POINT,
-    user     :process.env.DB_USER_NAME,
-    database : process.env.DB_DATABASE_NAME,
-    port: process.env.DB_PORT_NUM
-  });
+app.get("/", (req, res) => {
+  res.send("API Running");
+});
 
-connection.connect();
-app.get('/', (req, res) => res.send('Hello World!'))
+app.use("/api/", require("./routes/api/issues"));
 
+const PORT = process.env.PORT || 5000;
 
-// your code goes here
-
-// here
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
-
-module.exports = app;
+app.listen(PORT, () => console.log(`server is running on PORT ${PORT}`));
