@@ -1,9 +1,9 @@
-const express = require("express");
-const app = express();
-const bodyParser = require("body-parser");
-const port = 3000;
-const serialiser = require("node-serialize");
-const mysql = require("mysql");
+// const express = require("express");
+// const app = express();
+// const bodyParser = require("body-parser");
+// const port = 3000;
+// const serialiser = require("node-serialize");
+// const mysql = require("mysql");
 //  -------------------------------------------------------------
 const path = require("path");
 const mongoose = require("mongoose");
@@ -13,19 +13,19 @@ require("dotenv").config();
 const issueRoutes = require("./server/issue.routes");
 //  ----------------------------------------------------------------
 
-app.use(express.urlencoded());
+// app.use(express.urlencoded());
 
-// Parse JSON bodies (as sent by API clients)
-app.use(express.json());
-var connection = mysql.createConnection({
-	host: process.env.DB_END_POINT,
-	user: process.env.DB_USER_NAME,
-	database: process.env.DB_DATABASE_NAME,
-	port: process.env.DB_PORT_NUM,
-});
+// // Parse JSON bodies (as sent by API clients)
+// app.use(express.json());
+// var connection = mysql.createConnection({
+// 	host: process.env.DB_END_POINT,
+// 	user: process.env.DB_USER_NAME,
+// 	database: process.env.DB_DATABASE_NAME,
+// 	port: process.env.DB_PORT_NUM,
+// });
 
-connection.connect();
-app.get("/", (req, res) => res.send("Hello World!"));
+// connection.connect();
+// app.get("/", (req, res) => res.send("Hello World!"));
 
 // your code goes here --------------------------------------------------------------------
 
@@ -78,6 +78,6 @@ mongoose
 
 // here ----------------------------------------------------------------------------
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+// app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
-module.exports = app;
+// module.exports = app;
