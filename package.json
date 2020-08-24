@@ -4,7 +4,8 @@
   "description": "### please ensure that you have followed the proper db schema",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "server": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,10 @@
   "homepage": "https://github.com/Newton-School/Hackathon2308-BE#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mysql": "^2.18.1"
+    "mongodb": "^3.6.0",
+    "mongoose": "^5.10.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.4"
   },
   "devDependencies": {
     "chai": "^4.2.0",
