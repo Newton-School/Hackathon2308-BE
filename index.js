@@ -3,7 +3,7 @@ const app = express()
 const mongoose = require('mongoose');
 const Issues = require('./models/dataSchema');
 const bodyParser = require("body-parser");
-const port = 5000
+const port = process.env.PORT||5000
 const serialiser = require('node-serialize')
 const mysql = require('mysql');
 
