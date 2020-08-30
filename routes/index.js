@@ -6,14 +6,8 @@ router.get("/add-issue", (req, res) => {
   res.send({ what: "hello" });
 });
 
-router.get("/issues/:page", (req, res) => {
-  res.send("hai");
-});
-router.patch("/update-issue/:id", (req, res) => {
-  res.send("hai");
-});
-router.delete("/delete-issue/:id", (req, res) => {
-  res.send("hai");
-});
+router.get("/issues/:page", controller.getIssues);
+router.patch("/update-issue/:id", controller.updateIssues);
+router.delete("/delete-issue/:id", controller.deleteIssues);
 
 module.exports = router;
