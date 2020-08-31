@@ -14,7 +14,7 @@ exports.addIssue = (req, res, next) => {
     locked,
     JSON.stringify(queries)
   );
-  if (!id || !name || !description || !url || !number || !state)
+  if (!+id || !name || !description || !url || !+number || !state)
     return res
       .status(400)
       .send({ status: "failed", message: "Absence of mandatory fields" });
@@ -70,7 +70,7 @@ exports.getIssues = (req, res, next) => {
 exports.updateIssues = (req, res, next) => {
   let { id } = req.params;
   let { name, description, url, number, label, state, locked } = req.body;
-  if (!id || (!name && !description && !url && !number && !state))
+  if (!+id || (!name && !description && !url && !+number && !state))
     return res
       .status(400)
       .send({ status: "failed", message: "Absence of mandatory fields" });
@@ -91,7 +91,7 @@ exports.updateIssues = (req, res, next) => {
 
 exports.deleteIssues = (req, res, next) => {
   let { id } = req.params;
-  if (!id)
+  if (!+id)
     return res
       .status(400)
       .send({ status: "Failed", message: "absence of mandatory field id" });
