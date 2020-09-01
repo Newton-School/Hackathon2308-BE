@@ -5,12 +5,13 @@ const port = 3000;
 const serialiser = require("node-serialize");
 const mysql = require("mysql");
 const env = require("dotenv").config();
+const cors = require("cors");
 app.use(express.urlencoded());
 const initialRoute = require("./routes");
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
-
+app.use(cors());
 var connection = mysql.createConnection({
   host: process.env.DB_END_POINT,
   user: process.env.DB_USER_NAME,
