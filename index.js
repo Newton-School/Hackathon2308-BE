@@ -13,14 +13,6 @@ const mysql = require('mysql');
 app.use(bodyParser.json());
 
 
-if(process.env.NODE_ENV==="production"){
-
-  app.use(express.static('Hackathon2308-FE/build'));
-
-  app.get('*',(req,res)=>{
-      res.sendFile(path.resolve(__dirname+'/Hackathon2308-FE/build/index.html'));
-  });
-}
 
 
 mongoose.connect("mongodb+srv://umesh:umesh@hackathon.ecqkv.mongodb.net/githubissues?retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology:true})
