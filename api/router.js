@@ -35,7 +35,7 @@ router.delete("/api/delete-issue/:id",async(req,res)=>{
         const status=await Issues.findByIdAndDelete(id);
         res.json({"Status":"sucessful","Message":"Successfully deleted 1 record",})
     } catch (error) {
-        res.status(404).json('something went wrong')
+        res.status(404).json({"Status":"fail","Message":'something went wrong'})
     }
 })
 
@@ -63,7 +63,7 @@ router.get("/api/list-issues",async(req,res)=>{
 try {
     results.result=await Issues.find().limit(10).skip(startIndex).exec()    
 } catch (error) {
-    res.status(500).json({status:failed,Message:error.message})
+    res.status(500).json({"status":"failed","Message":error.message})
 }
 // console.log(results);
    res.json(results)
