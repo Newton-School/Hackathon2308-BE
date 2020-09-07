@@ -1,6 +1,6 @@
 const express=require('express');
 const router=express.Router();
-const Issues=require('../models/dataSchema')
+const Issues=require('../models/dataSchema');
 
 
 
@@ -9,6 +9,36 @@ router.post("/api/add-issues",(req,res)=>{
     console.log(issues);
     issues.save().then(saved=>{res.json(saved);}).catch(err=>res.json(err))
 })
+
+
+router.patch("/api/update-issues/:id",async(req,res)=>{
+    const id=req.params.id;
+    const updates=req.body;
+    try {
+        const status=await Issues.findByIdAndUpdate(id,updates);
+        res.json({
+            Status: "successful/failed",
+            Message: "1 record updated successfully"
+        }
+        )
+    } catch (error) {
+        res.status(404).json({
+            Status: "failed",
+            Message: "1 record updated failed"
+        })
+    }
+})
+
+router.delete("/api/delete-issue/:id",async(req,res)=>{
+    const id=req.params.id;
+    try {
+        const status=await Issues.findByIdAndDelete(id);
+        res.json({"Status":"sucessful","Message":"Successfully deleted 1 record",})
+    } catch (error) {
+        res.status(404).json('something went wrong')
+    }
+})
+
 
 router.get("/api/list-issues",async(req,res)=>{
     
