@@ -23,7 +23,10 @@ mongoose.connect("mongodb+srv://umesh:umesh@hackathon.ecqkv.mongodb.net/githubis
 
 // app.get('/', (req, res) => res.json('Hello World!'))
 
-
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 // your code goes here
 app.use("/",require('./api/router'))
 // here
