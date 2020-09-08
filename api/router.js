@@ -15,7 +15,8 @@ router.patch("/api/update-issues/:id",async(req,res)=>{
     const id=req.params.id;
     try {
         const status=await Issues.findByIdAndUpdate(id,{state:"close"});
-        console.log(status);
+        console.log(status.state);
+        // Issues.findOne({_id:id})
         res.json({
             Status: status,
             Message: "1 record updated successfully"
