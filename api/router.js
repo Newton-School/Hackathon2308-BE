@@ -14,7 +14,7 @@ router.post("/api/add-issues",(req,res)=>{
 router.patch("/api/update-issues/:id",async(req,res)=>{
     const id=req.params.id;
     try {
-        const status=await Issues.findByIdAndUpdate(id,{state:"close"});
+        const status=await Issues.findByIdAndUpdate(id,{state: state=="close"?"open":"closed"});
         console.log(status.state);
         status.save();
         // Issues.findOne({_id:id})
