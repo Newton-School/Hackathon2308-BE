@@ -13,11 +13,11 @@ router.post("/api/add-issues",(req,res)=>{
 
 router.patch("/api/update-issues/:id",async(req,res)=>{
     const id=req.params.id;
-    const updates=req.body;
     try {
-        const status=await Issues.findByIdAndUpdate(id,updates);
+        const status=await Issues.findByIdAndUpdate(id,{state:"close"});
+        console.log(status);
         res.json({
-            Status: "successful/failed",
+            Status: status,
             Message: "1 record updated successfully"
         }
         )
