@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose');
 const Issues = require('./models/dataSchema');
+var cors=require('cors')
 const bodyParser = require("body-parser");
 const port = process.env.PORT||5000
 const serialiser = require('node-serialize')
@@ -12,7 +13,7 @@ const mysql = require('mysql');
 // Parse JSON bodies (as sent by API clients)
 app.use(bodyParser.json());
 
-
+app.use(cors());
 
 
 mongoose.connect("mongodb+srv://umesh:umesh@hackathon.ecqkv.mongodb.net/githubissues?retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology:true})

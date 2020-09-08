@@ -18,11 +18,12 @@
   },
   "homepage": "https://github.com/Newton-School/Hackathon2308-BE#readme",
   "dependencies": {
-    "mysql": "^2.18.1",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mocha": "^8.1.1",
     "mongodb": "^3.6.1",
     "mongoose": "^5.10.3",
+    "mysql": "^2.18.1",
     "node-serialize": "0.0.4",
     "nodemon": "^2.0.4"
   },
