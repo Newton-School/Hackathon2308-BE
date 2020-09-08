@@ -7,7 +7,7 @@ const Issues=require('../models/dataSchema');
 router.post("/api/add-issues",(req,res)=>{
     const issues=new Issues(req.body)
     console.log(issues);
-    issues.save().then(saved=>{res.json(saved);}).catch(err=>res.json(err))
+    issues.save().then(saved=>{res.json({Status:"Sucess",Message:"Issues Added Sucessfully"});}).catch(err=>res.json({Status:"Fail",Message:"Eror Occure"}))
 })
 
 
